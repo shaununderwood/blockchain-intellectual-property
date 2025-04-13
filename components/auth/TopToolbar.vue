@@ -10,9 +10,9 @@
       <div class="toolbar-center">
         <nav class="main-nav">
           <ul class="nav-list">
-            <li class="nav-item"><NuxtLink to="/dashboard" class="nav-link">Dashboard</NuxtLink></li>
-            <li class="nav-item"><NuxtLink to="/dashboard/protect" class="nav-link">Protect IP</NuxtLink></li>
-            <li class="nav-item"><NuxtLink to="/dashboard/assets" class="nav-link">My Assets</NuxtLink></li>
+            <li class="nav-item"><NuxtLink to="/dashboard" class="nav-link" :class="{ 'active': isCurrentRoute('/dashboard') }">Dashboard</NuxtLink></li>
+            <li class="nav-item"><NuxtLink to="/dashboard/protect" class="nav-link" :class="{ 'active': isCurrentRoute('/dashboard/protect') }">Protect IP</NuxtLink></li>
+            <li class="nav-item"><NuxtLink to="/dashboard/assets" class="nav-link" :class="{ 'active': isCurrentRoute('/dashboard/assets') }">My Assets</NuxtLink></li>
           </ul>
         </nav>
       </div>
@@ -28,7 +28,15 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 const emit = defineEmits(['toggle-menu'])
+
+const isCurrentRoute = (path) => {
+  return route.path === path || 
+    (path === '/dashboard' && route.path === '/dashboard/');
+}
 
 const toggleMenu = () => {
   emit('toggle-menu')
@@ -104,9 +112,15 @@ const toggleMenu = () => {
   transition: border-color 0.3s, color 0.3s;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: #d62828; /* Red */
   border-bottom-color: #d62828;
+}
+
+.nav-link.active {
+  color: #d62828; /* Red */
+  border-bottom: 2px solid #d62828;
+  font-weight: bold;
 }
 
 .burger-menu-button {

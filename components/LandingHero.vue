@@ -11,9 +11,13 @@
 </template>
 
 <script setup>
+import { useAuth } from '~/composables/useAuth'
+
+const { login } = useAuth()
+
 const navigateToRegister = () => {
-  // Will be implemented to navigate to registration page
-  console.log('Navigate to register');
+  // Mock authentication - directly log the user in
+  login()
 }
 </script>
 

@@ -1,6 +1,6 @@
 // API route for sealing an envelope
 import { defineEventHandler, readBody } from 'h3';
-import { runQuery, getSingleQuery } from '~/server/database';
+import { runQuery, getSingleQuery, getQuery as dbGetQuery } from '~/server/database';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

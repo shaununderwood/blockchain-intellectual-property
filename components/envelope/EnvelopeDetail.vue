@@ -226,7 +226,7 @@ const fetchEnvelope = async () => {
     }
     
     // Fetch from API
-    const response = await fetch(`/api/envelopes?id=${envelopeId.value}`);
+    const response = await fetch(`/api/envelopes/${envelopeId.value}`);
     const data = await response.json();
     
     if (data.success) {

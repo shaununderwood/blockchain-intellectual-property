@@ -1,11 +1,10 @@
 // API route for getting a single envelope with its files
-import { defineEventHandler, getQuery } from 'h3';
+import { defineEventHandler } from 'h3';
 import { getSingleQuery, getQuery as dbGetQuery } from '~/server/database';
 
 export default defineEventHandler((event) => {
   try {
-    const query = getQuery(event);
-    const { id } = query;
+    const { id } = event.context.params;
     
     if (!id) {
       return {

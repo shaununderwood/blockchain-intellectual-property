@@ -27,8 +27,7 @@
         </div>
         
         <div class="dashboard-actions">
-          <button class="action-button">Protect New IP</button>
-          <button class="action-button secondary">View My Protected Assets</button>
+          <button class="action-button">Create New Envelope</button>
         </div>
         
         <div class="quick-guide">
